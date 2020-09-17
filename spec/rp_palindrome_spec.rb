@@ -22,5 +22,13 @@ describe 'String' do
   it "should return true even if there is punctuation in a palindrome" do
     expect("Madam, I'm Adam".palindrome?).to eq(true)
   end
+
+  it "should return false if an integer is not a palindrome" do
+    expect(12345.palindrome?).to eq(false)
+  end
+
+  it "should return true if an integer is a palindrome" do
+    expect(12321.palindrome?).to eq(true)
+  end
 end
 

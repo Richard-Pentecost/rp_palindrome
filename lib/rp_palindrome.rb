@@ -1,15 +1,26 @@
 require "rp_palindrome/version"
 
-class String 
-
+module RpPalindrome
   def palindrome?
-    processed_content == processed_content.reverse
+    if processed_content.empty? 
+      false
+    else
+      processed_content == processed_content.reverse
+    end
   end
 
   private
 
   def processed_content
-    self.scan(/\w+/).join.downcase
-    # self.scan(/[a-z]/i).join.downcase
+    # self.to_s.scan(/\w+/).join.downcase
+    self.to_s.scan(/[a-z0-9]/i).join.downcase     # equivalent
   end
+end
+
+class String 
+  include RpPalindrome
+end
+
+class Integer
+  include RpPalindrome
 end
